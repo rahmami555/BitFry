@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BitFry | مكتبة رقمية</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffe6f0, #fff5fa);
+      color: #444;
+    }
+
+    header {
+      background: linear-gradient(to right, #ff9eb8, #ffc0cb);
+      color: #fff;
+      padding: 40px 15px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      background-color: #fff0f5;
+      padding: 15px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #d63384;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #a61e4d;
+    }
+
+    .container {
+      padding: 30px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .product img {
+      width: 150px;
+      height: auto;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .product h3 {
+      margin-top: 0;
+      color: #d63384;
+    }
+
+    .product button {
+      background-color: #d63384;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .product button:hover {
+      background-color: #a61e4d;
+    }
+
+    footer {
+      background-color: #ffe6f0;
+      color: #d63384;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .lang-toggle {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+    }
+
+    .lang-toggle button {
+      background: #ffffff;
+      border: 1px solid #ccc;
+      padding: 5px 10px;
+      margin-left: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .social-links {
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      color: #d63384;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .social-links a i {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-toggle">
+    <button onclick="switchLang('ar')">العربية</button>
+    <button onclick="switchLang('en')">English</button>
+  </div>
+
+  <header>
+    <h1 id="siteTitle">BitFry</h1>
+    <p id="siteSubtitle">بيع الكتب الرقمية بكل سهولة</p>
+  </header>
+
+  <nav>
+    <a href="#home" onclick="showPage('home')">الرئيسية | Home</a>
+    <a href="#store" onclick="showPage('store')">المنتجات | Products</a>
+  </nav>
+
+  <div class="container">
+    <section id="homeSection">
+      <h2 id="aboutTitle">حول الموقع</h2>
+      <p id="aboutText">منصة رقمية لبيع كتب العناية بالجمال والنفس، بطرق دفع متعددة تشمل بايبال والعملات الرقمية والدفع المحلي.</p>
+      <div class="social-links">
+        <a href="https://pin.it/2JFEFHjRn" target="_blank">
+          <i class="fab fa-pinterest"></i> Pinterest
+        </a>
+      </div>
+    </section>
+
+    <section id="storeSection" style="display:none">
+      <h2 id="storeTitle">الكتب الرقمية المتاحة</h2>
+
+      <div class="product">
+        <img src="book1.jpg" alt="Book Cover">
+        <div>
+          <h3>اسم الكتاب الأول | Book Title 1</h3>
+          <p>كتاب متخصص في مجال العناية بالبشرة والصحة النفسية. مثال على منتج قابل للتعديل لاحقاً.</p>
+          <button onclick="alert('تواصل معنا للدفع: PayPal أو Binance أو CCP')">اشترِ الآن | Buy Now</button>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <footer>
+    <p>جميع الحقوق محفوظة &copy; 2025</p>
+  </footer>
+
+  <script>
+    function showPage(page) {
+      document.getElementById("homeSection").style.display = page === 'home' ? 'block' : 'none';
+      document.getElementById("storeSection").style.display = page === 'store' ? 'block' : 'none';
+    }
+
+    function switchLang(lang) {
+      if (lang === 'en') {
+        document.getElementById("siteTitle").innerText = "BitFry";
+        document.getElementById("siteSubtitle").innerText = "Sell your digital books easily";
+        document.getElementById("aboutTitle").innerText = "About the Site";
+        document.getElementById("aboutText").innerText = "A digital platform for selling beauty and self-care books using PayPal, crypto, and local payment methods.";
+        document.getElementById("storeTitle").innerText = "Available Digital Books";
+      } else {
+        document.getElementById("siteTitle").innerText = "BitFry";
+        document.getElementById("siteSubtitle").innerText = "بيع الكتب الرقمية بكل سهولة";
+        document.getElementById("aboutTitle").innerText = "حول الموقع";
+        document.getElementById("aboutText").innerText = "منصة رقمية لبيع كتب العناية بالجمال والنفس، بطرق دفع متعددة تشمل بايبال والعملات الرقمية والدفع المحلي.";
+        document.getElementById("storeTitle").innerText = "الكتب الرقمية المتاحة";
+      }
+    }
+  </script>
+</body>
+</html>
